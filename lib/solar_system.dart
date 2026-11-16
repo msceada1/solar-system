@@ -1,36 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:solar_system/planet.dart';
 
 class SolarSystem extends StatelessWidget {
   const SolarSystem({super.key});
 
-  static final List<String> _urlImagenes = [
-    'assets/images/earth.png',
-    'assets/images/jupiter.png',
-    'assets/images/mars.png',
-    'assets/images/mercury.png',
-    'assets/images/moon.png',
-    'assets/images/neptune.png',
-    'assets/images/pluto.png',
-    'assets/images/saturn.png',
-    'assets/images/sun.png',
-    'assets/images/uranus.png',
-    'assets/images/venus.png',
-  ];
-
-  static final List<String> _planetsNames = [
-    'Earth',
-    'Jupiter',
-    'Mars',
-    'Mercury',
-    'Moon',
-    'Neptune',
-    'Pluto',
-    'Saturn',
-    'Sun',
-    'Uranus',
-    'Venus',
-  ];
+  static List<Planeta> planetas = DatosPlanetas().planetas();
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +18,12 @@ class SolarSystem extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
         body: ListView.separated(
-          itemCount: _urlImagenes.length,
+          itemCount: planetas.length,
           itemBuilder: (context, index) {
             return ListTile(
-              leading: Image.asset(_urlImagenes[index]),
-              title: Text(_planetsNames[index]),
+              leading: Image.asset(planetas[index].rutaImagen),
+              title: Text(planetas[index].nombre),
+              subtitle: Text(planetas[index].distanciaAlSol),
               trailing: Icon(Icons.navigate_next),
             );
           },
