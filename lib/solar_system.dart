@@ -23,7 +23,7 @@ class SolarSystem extends StatelessWidget {
 
   static final List<String> _planetsNames = [
     'Earth',
-    'Eupiter',
+    'Jupiter',
     'Mars',
     'Mercury',
     'Moon',
