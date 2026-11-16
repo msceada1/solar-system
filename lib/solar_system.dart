@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(home: SolarSystem()));
-}
 
 class SolarSystem extends StatelessWidget {
   const SolarSystem({super.key});
