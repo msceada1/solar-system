@@ -37,13 +37,7 @@ class SolarSystem extends StatelessWidget {
     );
   }
 
-
   static void navegar(BuildContext context, String imagen) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => InformationPlanet(imagen: imagen),
-      ),
-    );
+    Navigator.pushNamed(context, '/InformationPlanet', arguments: imagen);
   }
 }

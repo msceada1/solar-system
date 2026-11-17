@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:solar_system/solar_system.dart';
 
 class InformationPlanet extends StatelessWidget {
-  const InformationPlanet({super.key, required this.imagen});
+  const InformationPlanet({super.key,});
 
-  final String imagen;
+
 
   @override
   Widget build(BuildContext context) {
+    final String rutaRecibida = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -27,7 +29,7 @@ class InformationPlanet extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(child: Image.asset(imagen)),
+      body: Center(child: Image.asset(rutaRecibida)),
     );
   }
 }
