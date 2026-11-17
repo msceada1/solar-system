@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solar_system/information_planet.dart';
 import 'package:solar_system/planet.dart';
 
 class SolarSystem extends StatelessWidget {
@@ -25,6 +26,14 @@ class SolarSystem extends StatelessWidget {
               title: Text(planetas[index].nombre),
               subtitle: Text(planetas[index].distanciaAlSol),
               trailing: Icon(Icons.navigate_next),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InformationPlanet()),
+                );
+
+                //navegar(context, planetas[index].rutaImagen);
+              },
             );
           },
           separatorBuilder: (context, index) => const Divider(),
@@ -32,4 +41,16 @@ class SolarSystem extends StatelessWidget {
       ),
     );
   }
+
+  /*
+  static void navegar(BuildContext context, String imagen) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => InformationPlanet(imagen: imagen),
+      ),
+    );
+  }
+
+   */
 }
