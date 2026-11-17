@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:solar_system/solar_system.dart';
 
 class InformationPlanet extends StatelessWidget {
-  const InformationPlanet({super.key});
+  const InformationPlanet({super.key, required this.imagen});
 
-  //final String imagen;
+  final String imagen;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class InformationPlanet extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(child: Image.asset('assets/images/earth.png')),
+      body: Center(child: Image.asset(imagen)),
     );
   }
 }
