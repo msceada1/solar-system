@@ -6,9 +6,22 @@ void main() {
   runApp(
     MaterialApp(
       initialRoute: '/',
-      routes: {
-        '/': (context) => const SolarSystem(),
-        '/InformationPlanet': (context) => const InformationPlanet(),
+      onGenerateRoute: (settings) {
+        if (settings.name == '/') {
+          return MaterialPageRoute(builder: (context) => const SolarSystem());
+        }
+
+        if (settings.name == '/InformationPlanet') {
+          final Map<String, String> datosRecibidos =
+              settings.arguments as Map<String, String>;
+
+          return MaterialPageRoute(
+            builder: (context) => InformationPlanet(
+              imagen: datosRecibidos['imagen']!,
+              descripcion: datosRecibidos['descripcion']!,
+            ),
+          );
+        }
       },
     ),
   );

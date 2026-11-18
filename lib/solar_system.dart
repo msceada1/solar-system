@@ -27,7 +27,11 @@ class SolarSystem extends StatelessWidget {
               subtitle: Text(planetas[index].distanciaAlSol),
               trailing: Icon(Icons.navigate_next),
               onTap: () {
-                navegar(context, planetas[index].rutaImagen);
+                navegar(
+                  context,
+                  planetas[index].rutaImagen,
+                  planetas[index].descripcion,
+                );
               },
             );
           },
@@ -37,7 +41,11 @@ class SolarSystem extends StatelessWidget {
     );
   }
 
-  static void navegar(BuildContext context, String imagen) {
-    Navigator.pushNamed(context, '/InformationPlanet', arguments: imagen);
+  static void navegar(BuildContext context, String imagen, String descripcion) {
+    Navigator.pushNamed(
+      context,
+      '/InformationPlanet',
+      arguments: {'imagen': imagen, 'descripcion': descripcion},
+    );
   }
 }
